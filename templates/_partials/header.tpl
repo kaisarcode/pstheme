@@ -22,38 +22,45 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-
-{extends file='page.tpl'}
-
-{block name='page_title'}
-  {$cms.meta_title}
+{block name='header_banner'}
+  <div class="header-banner">
+    {hook h='displayBanner'}
+  </div>
 {/block}
 
-{block name='page_content'}
-  {block name='cms_content'}
-    {$cms.content nofilter}
-  {/block}
-
-  {block name='hook_cms_dispute_information'}
-    {hook h='displayCMSDisputeInformation'}
-  {/block}
-
-  {block name='hook_cms_print_button'}
-    {hook h='displayCMSPrintButton'}
-  {/block}
-
-  {if isset($cms.cms_subpages) && $cms.cms_subpages}
-    <div class="cms-subpages">
-      <h3>{l s='List of sub pages' d='Shop.Theme.Global'}</h3>
-      <ul>
-        {foreach from=$cms.cms_subpages item=cms_subpage}
-          <li>
-            <a href="{$cms_subpage.link}">
-              {$cms_subpage.meta_title}
-            </a>
-          </li>
-        {/foreach}
-      </ul>
+{block name='header_nav'}
+  <nav class="header-nav">
+    <div class="left-nav">
+      <a href="{$urls.base_url}" class="store-name">
+        {$shop.name}
+      </a>
     </div>
-  {/if}
+    <div class="right-nav">
+      <div class="user-info">
+        {if $customer.is_logged}
+          <a href="{$urls.pages.my_account}" class="account">
+            <span>{$customer.firstname}</span>
+          </a>
+        {else}
+          <a href="{$urls.pages.authentication}" class="account">
+            {l s='Sign in' d='Shop.Theme.Actions'}
+          </a>
+        {/if}
+      </div>
+      <div class="cart-preview">
+        <a href="{$urls.pages.cart}">
+          {l s='Cart' d='Shop.Theme.Checkout'}
+          {if $cart.products_count > 0}
+            <span class="cart-products-count">({$cart.products_count})</span>
+          {/if}
+        </a>
+      </div>
+    </div>
+  </nav>
+{/block}
+
+{block name='header_top'}
+  <div class="header-top">
+    {hook h='displayTop'}
+  </div>
 {/block}

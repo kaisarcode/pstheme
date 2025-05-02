@@ -22,10 +22,6 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-
-{**
- * Basic layout template for PS Theme
- *}
 <!DOCTYPE html>
 <html lang="{$language.locale}">
   <head>
@@ -45,10 +41,28 @@
   </head>
 
   <body>
+    {block name='header'}
+      {include file='_partials/header.tpl'}
+    {/block}
+
     <main>
+      {block name='notifications'}
+        {include file='_partials/notifications.tpl'}
+      {/block}
+      
       {block name='content'}
         <p>Hello world! This is PS Theme.</p>
       {/block}
     </main>
+
+    {block name='footer'}
+      {include file='_partials/footer.tpl'}
+    {/block}
+
+    {block name='javascript_bottom'}
+      {foreach $javascript.bottom as $js}
+        <script type="text/javascript" src="{$js.uri}"></script>
+      {/foreach}
+    {/block}
   </body>
 </html>

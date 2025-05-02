@@ -22,38 +22,19 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-
-{extends file='page.tpl'}
-
-{block name='page_title'}
-  {$cms.meta_title}
-{/block}
-
-{block name='page_content'}
-  {block name='cms_content'}
-    {$cms.content nofilter}
-  {/block}
-
-  {block name='hook_cms_dispute_information'}
-    {hook h='displayCMSDisputeInformation'}
-  {/block}
-
-  {block name='hook_cms_print_button'}
-    {hook h='displayCMSPrintButton'}
-  {/block}
-
-  {if isset($cms.cms_subpages) && $cms.cms_subpages}
-    <div class="cms-subpages">
-      <h3>{l s='List of sub pages' d='Shop.Theme.Global'}</h3>
-      <ul>
-        {foreach from=$cms.cms_subpages item=cms_subpage}
-          <li>
-            <a href="{$cms_subpage.link}">
-              {$cms_subpage.meta_title}
-            </a>
-          </li>
-        {/foreach}
-      </ul>
+<footer id="footer">
+  <div class="footer-container">
+    {block name='hook_footer'}
+      {hook h='displayFooter'}
+    {/block}
+    <div class="footer-bottom">
+      <p>
+        {block name='copyright_link'}
+          <a href="https://kaisarcode.com">
+            © {$smarty.now|date_format:"%Y"} {$shop.name}
+          </a>
+        {/block}
+      </p>
     </div>
-  {/if}
-{/block}
+  </div>
+</footer>

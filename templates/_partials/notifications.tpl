@@ -22,38 +22,46 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-
-{extends file='page.tpl'}
-
-{block name='page_title'}
-  {$cms.meta_title}
-{/block}
-
-{block name='page_content'}
-  {block name='cms_content'}
-    {$cms.content nofilter}
-  {/block}
-
-  {block name='hook_cms_dispute_information'}
-    {hook h='displayCMSDisputeInformation'}
-  {/block}
-
-  {block name='hook_cms_print_button'}
-    {hook h='displayCMSPrintButton'}
-  {/block}
-
-  {if isset($cms.cms_subpages) && $cms.cms_subpages}
-    <div class="cms-subpages">
-      <h3>{l s='List of sub pages' d='Shop.Theme.Global'}</h3>
+{if isset($notifications)}
+<aside id="notifications">
+  {if $notifications.error}
+    <article class="notification notification-error">
       <ul>
-        {foreach from=$cms.cms_subpages item=cms_subpage}
-          <li>
-            <a href="{$cms_subpage.link}">
-              {$cms_subpage.meta_title}
-            </a>
-          </li>
+        {foreach $notifications.error as $notif}
+          <li>{$notif nofilter}</li>
         {/foreach}
       </ul>
-    </div>
+    </article>
   {/if}
-{/block}
+
+  {if $notifications.warning}
+    <article class="notification notification-warning">
+      <ul>
+        {foreach $notifications.warning as $notif}
+          <li>{$notif nofilter}</li>
+        {/foreach}
+      </ul>
+    </article>
+  {/if}
+
+  {if $notifications.success}
+    <article class="notification notification-success">
+      <ul>
+        {foreach $notifications.success as $notif}
+          <li>{$notif nofilter}</li>
+        {/foreach}
+      </ul>
+    </article>
+  {/if}
+
+  {if $notifications.info}
+    <article class="notification notification-info">
+      <ul>
+        {foreach $notifications.info as $notif}
+          <li>{$notif nofilter}</li>
+        {/foreach}
+      </ul>
+    </article>
+  {/if}
+</aside>
+{/if}

@@ -30,7 +30,7 @@
     <label class="{if $field.required}required{/if}">
       {$field.label}
       {block name='form_field_comment'}
-        {if $field.comment}
+        {if isset($field.comment) && $field.comment}
           <span class="form-control-comment">{$field.comment}</span>
         {/if}
       {/block}

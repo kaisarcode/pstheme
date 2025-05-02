@@ -22,38 +22,16 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-
-{extends file='page.tpl'}
-
-{block name='page_title'}
-  {$cms.meta_title}
-{/block}
-
-{block name='page_content'}
-  {block name='cms_content'}
-    {$cms.content nofilter}
-  {/block}
-
-  {block name='hook_cms_dispute_information'}
-    {hook h='displayCMSDisputeInformation'}
-  {/block}
-
-  {block name='hook_cms_print_button'}
-    {hook h='displayCMSPrintButton'}
-  {/block}
-
-  {if isset($cms.cms_subpages) && $cms.cms_subpages}
-    <div class="cms-subpages">
-      <h3>{l s='List of sub pages' d='Shop.Theme.Global'}</h3>
+{if $errors|count}
+  <div class="alert alert-danger">
+    {if $errors|count > 1}
       <ul>
-        {foreach from=$cms.cms_subpages item=cms_subpage}
-          <li>
-            <a href="{$cms_subpage.link}">
-              {$cms_subpage.meta_title}
-            </a>
-          </li>
+        {foreach $errors as $error}
+          <li>{if is_array($error)}{$error.key}{else}{$error}{/if}</li>
         {/foreach}
       </ul>
-    </div>
-  {/if}
-{/block}
+    {else}
+      <p>{if is_array($errors[0])}{$errors[0].key}{else}{$errors[0]}{/if}</p>
+    {/if}
+  </div>
+{/if}

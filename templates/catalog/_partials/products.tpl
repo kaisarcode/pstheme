@@ -22,38 +22,16 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
+<div id="js-product-list">
+  <div class="products">
+    {foreach from=$listing.products item="product"}
+      {block name='product_miniature'}
+        {include file='catalog/_partials/miniatures/product.tpl' product=$product}
+      {/block}
+    {/foreach}
+  </div>
 
-{extends file='page.tpl'}
-
-{block name='page_title'}
-  {$cms.meta_title}
-{/block}
-
-{block name='page_content'}
-  {block name='cms_content'}
-    {$cms.content nofilter}
+  {block name='pagination'}
+    {include file='_partials/pagination.tpl' pagination=$listing.pagination}
   {/block}
-
-  {block name='hook_cms_dispute_information'}
-    {hook h='displayCMSDisputeInformation'}
-  {/block}
-
-  {block name='hook_cms_print_button'}
-    {hook h='displayCMSPrintButton'}
-  {/block}
-
-  {if isset($cms.cms_subpages) && $cms.cms_subpages}
-    <div class="cms-subpages">
-      <h3>{l s='List of sub pages' d='Shop.Theme.Global'}</h3>
-      <ul>
-        {foreach from=$cms.cms_subpages item=cms_subpage}
-          <li>
-            <a href="{$cms_subpage.link}">
-              {$cms_subpage.meta_title}
-            </a>
-          </li>
-        {/foreach}
-      </ul>
-    </div>
-  {/if}
-{/block}
+</div>
