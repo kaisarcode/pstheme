@@ -1,0 +1,64 @@
+name: pstheme
+display_name: PS Theme
+version: 1.0.0
+author:
+  name: "Kaisar"
+  email: "contact@kaisarcode.com"
+
+meta:
+  compatibility:
+    from: 8.0.0
+    to: ~
+
+  available_layouts:
+    layout-full-width:
+      name: Full Width
+      description: No side columns, ideal for distraction-free pages such as product pages.
+
+assets:
+  use_parent_assets: false
+  css:
+    all:
+      - id: theme-main
+        path: assets/css/theme.css
+
+global_settings:
+  default_layout: layout-full-width
+  image_types:
+    cart_default:
+      width: 125
+      height: 125
+      scope: [products]
+    small_default:
+      width: 98
+      height: 98
+      scope: [products, categories, manufacturers, suppliers]
+    medium_default:
+      width: 452
+      height: 452
+      scope: [products, manufacturers, suppliers]
+    large_default:
+      width: 800
+      height: 800
+      scope: [products]
+    category_default:
+      width: 850
+      height: 170
+      scope: [categories]
+    stores_default:
+      width: 170
+      height: 115
+      scope: [stores]
+    home_default:
+      width: 250
+      height: 250
+      scope: [products]
+
+theme_settings:
+  default_layout: layout-full-width
+  layouts:
+    category: layout-full-width
+    best-sales: layout-full-width
+    new-products: layout-full-width
+    prices-drop: layout-full-width
+    contact: layout-full-width

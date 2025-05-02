@@ -1,0 +1,28 @@
+/* Basic styles for PS Barebones Theme */
+:root {
+  --primary-color: #2fb5d2;
+  --text-color: #232323;
+  --background-color: #ffffff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin: 20px 0;
+  font-weight: 600;
+}
