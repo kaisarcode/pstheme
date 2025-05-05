@@ -62,7 +62,9 @@
       {/block}
 
       {block name='content'}
-        <p>Hello world! This is PS Theme.</p>
+        <div class="content-wrapper">
+          <p>Hello world! This is PS Theme.</p>
+        </div>
       {/block}
     </main>
 
@@ -71,9 +73,13 @@
     {/block}
 
     {block name='javascript_bottom'}
-      {foreach $javascript.bottom as $js}
-        <script type="text/javascript" src="{$js.uri}"></script>
-      {/foreach}
+      {if isset($javascript) && isset($javascript.bottom)}
+        {foreach $javascript.bottom as $js}
+          {if isset($js.uri)}
+            <script type="text/javascript" src="{$js.uri}"></script>
+          {/if}
+        {/foreach}
+      {/if}
     {/block}
   </body>
 </html>

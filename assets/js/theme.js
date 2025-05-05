@@ -7,6 +7,9 @@ if (typeof prestashop === 'undefined') {
     var prestashop = {};
 }
 
+// Define theme object
+var theme = {};
+
 /**
  * Theme initialization
  */
@@ -44,5 +47,5 @@ $(document).ready(() => {
     });
 });
 
-// Export for use with modules
-export default theme;
+// Make theme available globally
+window.theme = theme;
