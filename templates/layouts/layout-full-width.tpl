@@ -35,7 +35,6 @@
         {if $page.meta.description}<meta name="description" content="{$page.meta.description}">{/if}
       {/block}
 
-      <!-- Resource hints -->
       <link rel="preconnect" href="https://code.jquery.com">
       <link rel="dns-prefetch" href="https://code.jquery.com">
       <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script" crossorigin="anonymous">
@@ -46,7 +45,6 @@
         {/foreach}
       {/block}
 
-      <!-- jQuery -->
       <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     {/block}
   </head>

@@ -27,13 +27,16 @@
 <html lang="{$language.locale}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=10,user-scalable=yes">
+
     <title>{$page.meta.title}</title>
+
     {block name='stylesheets'}
       {foreach $stylesheets.external as $stylesheet}
         <link rel="stylesheet" href="{$stylesheet.uri}" type="text/css" media="{$stylesheet.media}">
       {/foreach}
     {/block}
+
   </head>
 
   <body>
