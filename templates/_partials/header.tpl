@@ -23,9 +23,11 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 {block name='header_banner'}
-  <div class="header-banner">
-    {hook h='displayBanner'}
-  </div>
+  {if {hook h='displayBanner'}}
+    <div class="header-banner">
+      {hook h='displayBanner'}
+    </div>
+  {/if}
 {/block}
 
 {block name='header_top'}
