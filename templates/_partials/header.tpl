@@ -28,6 +28,12 @@
   </div>
 {/block}
 
+{block name='header_top'}
+  <div class="header-top">
+    {hook h='displayTop'}
+  </div>
+{/block}
+
 {block name='header_nav'}
   <nav class="header-nav">
     <div class="left-nav">
@@ -57,10 +63,4 @@
       </div>
     </div>
   </nav>
-{/block}
-
-{block name='header_top'}
-  <div class="header-top">
-    {hook h='displayTop'}
-  </div>
 {/block}
