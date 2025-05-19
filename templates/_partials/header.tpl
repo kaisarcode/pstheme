@@ -22,10 +22,11 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
+
 {block name='header_banner'}
   {if {hook h='displayBanner'}}
-    <div class="header-banner">
-      {hook h='displayBanner'}
+  <div class="header-banner">
+    {hook h='displayBanner'}
     </div>
   {/if}
 {/block}
