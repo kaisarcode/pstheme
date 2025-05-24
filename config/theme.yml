@@ -1,4 +1,3 @@
-parent: classic
 name: pstheme
 display_name: PS Theme
 version: 1.0.0
@@ -46,12 +45,12 @@ global_settings:
     to_enable:
       - ps_shoppingcart
       - ps_customersignin
-  hooks:
-    modules_to_hook:
-      displayNav2:
-        - ps_customersignin
-      displayTop:
-        - ps_shoppingcart
+    hooks:
+      modules_to_hook:
+        displayNav2:
+          - ps_customersignin
+        displayTop:
+          - ps_shoppingcart
 
 assets:
   css:

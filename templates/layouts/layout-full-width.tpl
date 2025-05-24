@@ -22,6 +22,7 @@
  * @copyright 2025 KaisarCode
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
+
 <!DOCTYPE html>
 <html lang="{$language.locale}">
   <head>
@@ -79,5 +80,9 @@
         {/foreach}
       {/if}
     {/block}
+
+    {hook h='displayBeforeBodyClosingTag'}
+
+    <script src="{$urls.base_url}themes/core.js"></script>
   </body>
 </html>
