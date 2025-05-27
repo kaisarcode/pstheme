@@ -36,6 +36,11 @@
         {if $page.meta.description}<meta name="description" content="{$page.meta.description}">{/if}
       {/block}
 
+      {block name='head_icons'}
+        <link rel="icon" type="image/vnd.microsoft.icon" href="{$shop.favicon}?{$shop.favicon_update_time}">
+        <link rel="shortcut icon" type="image/x-icon" href="{$shop.favicon}?{$shop.favicon_update_time}">
+      {/block}
+
       <link rel="preconnect" href="https://code.jquery.com">
       <link rel="dns-prefetch" href="https://code.jquery.com">
       <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script" crossorigin="anonymous">
