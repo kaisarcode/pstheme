@@ -2,11 +2,6 @@
  * PS Theme JavaScript
  */
 
-// Make sure prestashop is available
-if (typeof prestashop === 'undefined') {
-    var prestashop = {};
-}
-
 // Define theme object
 var theme = {};
 
@@ -14,6 +9,7 @@ var theme = {};
  * Theme initialization
  */
 $(document).ready(() => {
+
     // Update cart when it changes
     prestashop.on('updateCart', (event) => {
         if (!event.reason || event.reason.linkAction !== 'refresh') {

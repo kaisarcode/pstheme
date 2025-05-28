@@ -52,18 +52,6 @@ global_settings:
         displayTop:
           - ps_shoppingcart
 
-assets:
-  css:
-    - id_name: theme-main
-      path: assets/css/theme.css
-      media: all
-      priority: 50
-  js:
-    - id_name: theme-main
-      path: assets/js/theme.js
-      position: bottom
-      priority: 50
-
 theme_settings:
   default_layout: layout-full-width
   layouts:

@@ -52,6 +52,15 @@
       {/block}
 
       <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+      {block name='javascript_head'}
+        {if isset($javascript) && isset($javascript.head) && isset($javascript.head.external)}
+          {foreach $javascript.head.external as $js}
+            <script type="text/javascript" src="{$js.uri|escape:'html':'UTF-8'}" {if $js.attribute}{$js.attribute|escape:'html':'UTF-8'}{/if}></script>
+          {/foreach}
+        {/if}
+      {/block}
+
     {/block}
   </head>
 
@@ -77,17 +86,14 @@
     {/block}
 
     {block name='javascript_bottom'}
-      {if isset($javascript) && isset($javascript.bottom)}
-        {foreach $javascript.bottom as $js}
-          {if isset($js.uri)}
-            <script type="text/javascript" src="{$js.uri}"></script>
-          {/if}
+      {if isset($javascript) && isset($javascript.bottom) && isset($javascript.bottom.external)}
+        {foreach $javascript.bottom.external as $js}
+          <script type="text/javascript" src="{$js.uri|escape:'html':'UTF-8'}" {if $js.attribute}{$js.attribute|escape:'html':'UTF-8'}{/if}></script>
         {/foreach}
       {/if}
     {/block}
 
     {hook h='displayBeforeBodyClosingTag'}
 
-    <script src="{$urls.base_url}themes/core.js"></script>
   </body>
 </html>
