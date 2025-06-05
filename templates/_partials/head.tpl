@@ -37,22 +37,17 @@
   <link rel="shortcut icon" type="image/x-icon" href="{$shop.favicon}?{$shop.favicon_update_time}">
 {/block}
 
-<link rel="preconnect" href="https://code.jquery.com">
-<link rel="dns-prefetch" href="https://code.jquery.com">
-<link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script" crossorigin="anonymous">
-
 {block name='stylesheets'}
-  {foreach $stylesheets.external as $stylesheet}
-    <link rel="stylesheet" href="{$stylesheet.uri}" type="text/css" media="{$stylesheet.media}">
-  {/foreach}
+  {include file="_partials/stylesheets.tpl" stylesheets=$stylesheets}
 {/block}
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
 {block name='javascript_head'}
-  {if isset($javascript) && isset($javascript.head) && isset($javascript.head.external)}
-    {foreach $javascript.head.external as $js}
-      <script type="text/javascript" src="{$js.uri|escape:'html':'UTF-8'}" {if $js.attribute}{$js.attribute|escape:'html':'UTF-8'}{/if}></script>
-    {/foreach}
-  {/if}
+  {include file="_partials/javascript.tpl" javascript=$javascript.head vars=$js_custom_vars}
 {/block}
+
+{block name='hook_header'}
+  {$HOOK_HEADER nofilter}
+{/block}
+
+{block name='hook_extra'}{/block}
