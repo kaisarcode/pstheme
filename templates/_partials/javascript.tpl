@@ -23,46 +23,20 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 
-<!DOCTYPE html>
-<html lang="{$language.locale}">
-  <head>
-    {block name='head'}
-      {include file='_partials/head.tpl'}
-    {/block}
-  </head>
-  <body id="{$page.page_name}" class="{$page.body_classes|classnames}">
+{foreach $javascript.external as $js}
+  <script type="text/javascript" src="{$js.uri}" {$js.attribute}></script>
+{/foreach}
 
-    {block name='hook_after_body_opening_tag'}
-      {hook h='displayAfterBodyOpeningTag'}
-    {/block}
+{foreach $javascript.inline as $js}
+  <script type="text/javascript">
+    {$js.content nofilter}
+  </script>
+{/foreach}
 
-    {block name='header'}
-      {include file='_partials/header.tpl'}
-    {/block}
-
-    <main>
-      {block name='notifications'}
-        {include file='_partials/notifications.tpl'}
-      {/block}
-
-      {block name='content'}
-        <div class="content-wrapper">
-          <p>Hello world! This is PS Theme.</p>
-        </div>
-      {/block}
-    </main>
-
-    {block name='footer'}
-      {include file='_partials/footer.tpl'}
-    {/block}
-
-    {block name='javascript_bottom'}
-      {include file="_partials/javascript.tpl" javascript=$javascript.bottom}
-    {/block}
-
-    {block name='hook_before_body_closing_tag'}
-      {hook h='displayBeforeBodyClosingTag'}
-    {/block}
-
-  </body>
-</html>
+{if isset($vars) && $vars|@count}
+  <script type="text/javascript">
+    {foreach from=$vars key=var_name item=var_value}
+    var {$var_name} = {$var_value|json_encode nofilter};
+    {/foreach}
+  </script>
+{/if}
